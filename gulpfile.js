@@ -1,4 +1,5 @@
 'use strict';
+
 const gulp = require('gulp'),
       $ = require('gulp-load-plugins')(),
       browserSync = require('browser-sync').create(),
