@@ -1,0 +1,9 @@
+@import "fonts_mixin";
+
+
+@include font-face("Helvetica Neue",
+        "../../typography/fonts/Helvetica/helveticaneue_thin",
+        lighter,
+        normal,
+        eot woff ttf
+);
