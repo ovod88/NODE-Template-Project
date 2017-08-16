@@ -1,8 +1,8 @@
-const dir = 'public/',
-      relativeFontDir = 'css/fonts',
-      fs = require('fs');
+const fs = require('fs'),
+      config = require('../config')(),
+      configGulp = config.gulp;
 
-function getFiles (dir, filesExt) {
+function getFiles(dir, filesExt) {
 
     filesExt = filesExt || [];
     let files = [];
@@ -42,11 +42,11 @@ function getFiles (dir, filesExt) {
 
 module.exports = function (relativeStyleDir) {
 
-    let styles = getFiles(dir + relativeStyleDir),
-    fonts = getFiles(dir + relativeFontDir),
-    files;
+    let styles = getFiles(configGulp.dstAll + '/' + relativeStyleDir),
+        libs = getFiles(configGulp.dstAll + '/' + configGulp.commonCssLibs),
+        files;
 
-    files = [ ...styles, ...fonts ];
+    files = [ ...libs, ...styles ];
     files.customStyle = styles.customStyle;
 
     return files;
